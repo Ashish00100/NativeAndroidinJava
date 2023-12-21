@@ -27,7 +27,7 @@ public class MainContainerActivity extends AppCompatActivity implements LoginFra
     }
 
     @Override
-    public void navigateToHome(String username) {
+    public void onPasswordSuccess(String username) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer,HomeFragment.newInstance(username))
                 .addToBackStack(null)

@@ -20,7 +20,7 @@ public class PasswordFragment extends Fragment {
     private PasswordFragment.callBackListener passwordListener;
 
     public interface callBackListener {
-        void navigateToHome(String username);
+        void onPasswordSuccess(String username);
     }
 
     public PasswordFragment() {
@@ -59,24 +59,24 @@ public class PasswordFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_password, container, false);
 
-        TextView welcomeTextView = view.findViewById(R.id.tv_greetings);
-        EditText passwordEditText = view.findViewById(R.id.password);
-        TextView errorView = view.findViewById(R.id.inputError);
-        Button submitPasswordButton = view.findViewById(R.id.submitButton);
+        TextView greetings = view.findViewById(R.id.tv_greetings);
+        EditText password = view.findViewById(R.id.password);
+        TextView wrongPassword = view.findViewById(R.id.inputError);
+        Button submit = view.findViewById(R.id.submitButton);
 
-        welcomeTextView.setText("Hi " + username + "!");
+        greetings.setText("Hi " + username + "!");
 
-        submitPasswordButton.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String password = passwordEditText.getText().toString();
-                if (password.length() > 8) {
+                String passwords = password.getText().toString();
+                if (passwords.length() > 8) {
                     // Password is valid, perform desired action
-                    errorView.setText("");
-                    passwordListener.navigateToHome(username);
+                    wrongPassword.setText("");
+                    passwordListener.onPasswordSuccess(username);
                 } else {
                     // Display an error message
-                    errorView.setText("Password must be at least 8 Characters ");
+                    wrongPassword.setText("Password is less than 9 characters ");
                 }
             }
         });
