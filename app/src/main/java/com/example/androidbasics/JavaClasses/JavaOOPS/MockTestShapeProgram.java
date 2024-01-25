@@ -1,4 +1,4 @@
-package com.example.androidbasics.JavaClasses;
+package com.example.androidbasics.JavaClasses.JavaOOPS;
 
 // Interface for Shapes
 interface Shapes {

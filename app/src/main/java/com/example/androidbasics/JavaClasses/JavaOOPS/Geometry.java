@@ -1,4 +1,4 @@
-package com.example.androidbasics.JavaClasses;
+package com.example.androidbasics.JavaClasses.JavaOOPS;
 
 import java.util.ArrayList;
 
